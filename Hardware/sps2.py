@@ -3,11 +3,8 @@ import asyncio
 import websockets
 import random
 
-# Define the constant device ID for the IoT device
-DEVICE_ID = "ABC123"  # Change this to the actual device ID
-
 async def send_data():
-    uri = "ws://192.168.2.72:3000"
+    uri = "ws://192.168.2.72:5000"
     async with websockets.connect(uri) as websocket:
         while True:
             # Simulate inputs from the IoT device (replace this with actual input mechanism)
@@ -15,9 +12,8 @@ async def send_data():
             longitude = random.uniform(-180, 180)
             decision_value = random.uniform(0, 100)
             
-            # Create a JSON object containing the data including the device ID
+            # Create a JSON object containing the data
             data = {
-                "deviceId": DEVICE_ID,
                 "location": [latitude, longitude],
                 "decision_value": decision_value
             }

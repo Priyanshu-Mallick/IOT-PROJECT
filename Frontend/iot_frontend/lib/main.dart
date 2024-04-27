@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: Color(0xFF137BBF), // Assign primary color here
-        textTheme: GoogleFonts.rajdhaniTextTheme(), // Set primary font style here
+        textTheme:
+            GoogleFonts.rajdhaniTextTheme(), // Set primary font style here
       ),
       home: SplashScreen(),
     );

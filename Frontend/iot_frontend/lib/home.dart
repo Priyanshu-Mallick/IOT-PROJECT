@@ -3,6 +3,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iot_frontend/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'map_test.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,12 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          GoogleMap(
-            initialCameraPosition: CameraPosition(
-              target: _GooglePlx,
-              zoom: 13,
-            ),
-          ),
+          MapTest(),
           Positioned(
             top: 30,
             right: 0,
