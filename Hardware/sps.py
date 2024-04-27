@@ -11,9 +11,11 @@ async def send_data():
     async with websockets.connect(uri) as websocket:
         while True:
             # Simulate inputs from the IoT device (replace this with actual input mechanism)
-            latitude = random.uniform(-90, 90)
-            longitude = random.uniform(-180, 180)
-            decision_value = random.uniform(0, 100)
+            # latitude = random.uniform(-90, 90)
+            # longitude = random.uniform(-180, 180)
+            latitude = 20.350588006464434
+            longitude = 85.80648774663918
+            decision_value = random.uniform(15, 25)
             
             # Create a JSON object containing the data including the device ID
             data = {

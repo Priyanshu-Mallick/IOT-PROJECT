@@ -3,6 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iot_frontend/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'bottom_sheet.dart';
 import 'map_test.dart';
 
 
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          MapTest(),
+          MapTest(latLongList: [],),
           Positioned(
             top: 30,
             right: 0,
@@ -31,15 +32,16 @@ class _HomeScreenState extends State<HomeScreen> {
           Positioned(
             bottom: 0,
             child: Container(
-              height: 100,
+              height: MediaQuery.of(context).size.height*0.4,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(45),
-                  topRight: Radius.circular(45),
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
                 ),
                 color: Colors.white,
               ),
+              child: HomePage(),
             ),
           )
         ],

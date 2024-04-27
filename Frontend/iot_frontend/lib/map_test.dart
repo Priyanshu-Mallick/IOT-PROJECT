@@ -9,7 +9,9 @@ import 'dart:convert';
 
 
 class MapTest extends StatefulWidget {
-  const MapTest({Key? key}) : super(key: key);
+  final List<Map<String, double>> latLongList;
+
+  const MapTest({Key? key, required this.latLongList}) : super(key: key);
 
   @override
   State<MapTest> createState() => _MapTestState();
@@ -32,7 +34,7 @@ class _MapTestState extends State<MapTest> {
   Future<void> _initializeMap() async {
     await _getUserCurrentLocation();
 
-    await _fetchAndSetMarkers();
+    // await _fetchAndSetMarkers();
 
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(_kGooglePlex!));
@@ -68,12 +70,70 @@ class _MapTestState extends State<MapTest> {
     );
   }
 
-  Future<void> _fetchAndSetMarkers() async {
-    try {
-    } catch (e) {
+  // Future<void> _fetchAndSetMarkers() async {
+  //   try {
+  //     final SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     final Position currentPosition = await Geolocator.getCurrentPosition();
+  //
+  //     final http.Response response = await http.get(Uri.parse(apiEndpoint));
+  //
+  //     if (response.statusCode == 200) {
+  //       final List<dynamic> data = json.decode(response.body);
+  //       List<String> nearbyUids = [];
+  //       print("Response body: " + " " + '$data');
+  //       for (dynamic locationData in data) {
+  //         try {
+  //           final String uid = locationData['uid'];
+  //           final List<String> coordinates = List<String>.from(locationData['location']);
+  //
+  //           final double latitude = double.parse(coordinates[0]);
+  //           final double longitude = double.parse(coordinates[1]);
+  //
+  //           final double distance = Geolocator.distanceBetween(
+  //             currentPosition.latitude,
+  //             currentPosition.longitude,
+  //             latitude,
+  //             longitude,
+  //           );
+  //
+  //           if (distance <= 500) {
+  //             // Add markers for nearby locations (red color) within 100 meters
+  //             print(LatLng(latitude, longitude));
+  //
+  //             _markers.add(
+  //               Marker(
+  //                 markerId: MarkerId(uid),
+  //                 position: LatLng(latitude, longitude),
+  //                 infoWindow: InfoWindow(
+  //                   title: locationData['name'],
+  //                 ),
+  //                 icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+  //               ),
+  //             );
+  //
+  //             // Store UID in SharedPreferences for future use
+  //             nearbyUids.add(uid);
+  //
+  //           }
+  //         } catch (e) {
+  //           // Handle individual location data parsing error
+  //           print('Error parsing location data: $e');
+  //         }
+  //       }
+  //
+  //       print(nearbyUids);
+  //       // Save the list of nearby UIDs to SharedPreferences
+  //       await SharedPreferenceService.saveNearbyUidsToLocalStorage(nearbyUids);
+  //     } else {
+  //       // Handle API response status code other than 200
+  //       print('API request failed with status code: ${response.statusCode}');
+  //     }
+  //   } catch (e) {
+  //     // Handle general exception during API request
+  //     print('Error fetching and setting markers: $e');
+  //   }
+  // }
 
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

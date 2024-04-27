@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart'; // Import Firebase Core
-import 'package:iot_frontend/home_page.dart';
+import 'package:iot_frontend/bottom_sheet.dart';
 import 'package:iot_frontend/splashscreen.dart';
 
 void main() async {
