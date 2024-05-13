@@ -40,6 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   topRight: Radius.circular(20),
                 ),
                 color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1), // shadow color
+                    spreadRadius: 5, // how spread the shadow
+                    blurRadius: 10, // how blurred the shadow
+                    offset: Offset(0, -3), // changes position of shadow
+                  ),
+                ],
               ),
               child: HomePage(),
             ),
